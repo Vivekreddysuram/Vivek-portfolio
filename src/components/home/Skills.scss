@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+:root {
+  --c1: #b197fc;
+  --b2: #000;
+  --b3: #111;
+  --w1: #fff;
+  --w2: #eee;
+  --t1: all 0.5s ease 0s;
+}
+
+.skills {
+  background-color: #000;
+  color: #fff;
+  padding: 6rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-divider {
+      width: 50px;
+      height: 3px;
+      background-color: #b197fc;
+      margin: 0 auto;
+    }
+  }
+
+  .skills-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .skill-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 2px solid;
+      transition: background-color 0.3s ease;
+
+      .check-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        font-weight: bold;
+        font-size: 16px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      h3 {
+        color: #fff;
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .card-content {
+      padding: 1.5rem;
+
+      .skill-item {
+        margin-bottom: 1.25rem;
+        cursor: pointer;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .skill-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.5rem;
+
+          .skill-name {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+          }
+
+          .skill-percentage {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+          }
+        }
+
+        &:hover {
+          .skill-name {
+            color: #fff;
+          }
+
+          .skill-percentage {
+            color: #fff;
+          }
+        }
+
+        .skill-bar-container {
+          height: 8px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 4px;
+          overflow: hidden;
+          position: relative;
+
+          .skill-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+              transform: translateX(-100%);
+              transition: transform 0.6s ease;
+            }
+
+            &.hovered {
+              transform: scaleY(1.2);
+              
+              &::after {
+                transform: translateX(100%);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .card-footer {
+      padding: 1rem;
+      display: flex;
+      justify-content: flex-end;
+
+      .expand-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: rotate(180deg) scale(1.1);
+        }
+      }
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-content {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+
+    h3 {
+      color: #fff;
+      margin: 0 0 1.5rem 0;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #fff;
+        font-size: 0.9rem;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #222;
+        color: #fff;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #4A90E2;
+          box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+        }
+      }
+
+      input[type="range"] {
+        width: 100%;
+        height: 6px;
+        -webkit-appearance: none;
+        background: #333;
+        border-radius: 3px;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: #4A90E2;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        &::-moz-range-thumb {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: #4A90E2;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &[type="button"] {
+          background-color: #333;
+          color: #fff;
+
+          &:hover {
+            background-color: #444;
+          }
+        }
+
+        &[type="submit"] {
+          background-color: #4A90E2;
+          color: #fff;
+
+          &:hover {
+            background-color: #357ABD;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .skills-container {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+    
+    .skills-container {
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+    }
+
+    .skill-card {
+      .card-header {
+        padding: 1.25rem;
+
+        .check-icon {
+          width: 28px;
+          height: 28px;
+          font-size: 14px;
+        }
+
+        h3 {
+          font-size: 1.1rem;
+        }
+      }
+
+      .card-content {
+        padding: 1.25rem;
+      }
+    }
+
+    .modal-content {
+      width: 95%;
+      padding: 1.5rem;
+    }
+  }
+} 
