@@ -4,7 +4,12 @@ module.exports = {
   style: {
     sass: {
       loaderOptions: {
-        implementation: require('sass')
+        implementation: require('sass'),
+        sassOptions: {
+          logger: {
+            warn: () => {}
+          }
+        }
       }
     }
   }
