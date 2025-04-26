@@ -2,7 +2,7 @@ import React from "react";
 import "./Project.scss";
 import ecomImage from "../../assets/img/Ecom.png";
 import stockImage from "../../assets/img/Stock.png";
-import weatherImage from "/Users/vivekreddysuram/Desktop/vivek-main/vivek-portfolio/src/assets/img/Car.png";
+import carImage from "../../assets/img/Car.png";
 
 const Project = () => {
   const projects = [
@@ -19,16 +19,16 @@ const Project = () => {
       description: "A Python-based system that processes live stock data and calculates Simple Moving Averages (SMA) to optimize decision-making and provide accurate insights into intraday market trends.",
       technologies: ["Python", "Polygon.io", "Pandas/NumPy", "Matplotlib","APIs"],
       image: stockImage,
-      github: "https://github.com/Vivekreddysuram/CS-DBMS2",
-      demo: "https://task-manager-demo.com",
+      github: "https://github.com/Vivekreddysuram/Stock-Data-Processing",
+      demo: "https://stock-data-demo.com",
     },
     {
-      title: "Uphill Adventure - Car Game",
-      description: "A 2D off-road driving game featuring procedural terrain, dynamic weather effects, and progressive levels, built using Godot Engine to provide an engaging and interactive gameplay experience.",
-      technologies: ["Godot Engine", "GDScript", "Go Logger", "Go Programming Language"],
-      image: weatherImage,
-      github: "https://github.com/Mahesh1998/uphilladventure",
-      demo: "https://weather-dashboard-demo.com",
+      title: "Car Rental System",
+      description: "A comprehensive car rental management system with features for vehicle inventory, booking management, and customer records.",
+      technologies: ["Java", "Spring Boot", "MySQL", "React", "REST API"],
+      image: carImage,
+      github: "https://github.com/Vivekreddysuram/Car-Rental-System",
+      demo: "https://car-rental-demo.com",
     },
   ];
 
