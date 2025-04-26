@@ -16,10 +16,10 @@ const MainBody = () => {
   const mouseRef = useRef({ x: 0, y: 0 });
 
   const handleDownloadCV = () => {
-    const cvUrl = "/Vivek_Resume.pdf";
+    const cvUrl = "/Vivek/Vivek_Resume.pdf";
     const link = document.createElement('a');
     link.href = cvUrl;
-    link.download = 'Vivek_Reddy_Suram_Resume.pdf';
+    link.download = 'Vivek_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -233,9 +233,9 @@ const MainBody = () => {
               <a href="#contact" className="cta-button secondary">
                 <span>Get In Touch</span>
               </a>
-              <button onClick={handleDownloadCV} className="cta-button cv-button">
-                <span>Download CV</span>
-              </button>
+           <button onClick={handleDownloadCV} className="cta-button cv-button">
+           <span>Download CV</span>
+           </button>
             </div>
           </div>
         </div>
