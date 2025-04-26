@@ -16,7 +16,7 @@ const MainBody = () => {
   const mouseRef = useRef({ x: 0, y: 0 });
 
   const handleDownloadCV = () => {
-    const cvUrl = "/Vivek/Vivek_Resume.pdf";
+    const cvUrl = "/Vivek-portfolio/Vivek_Resume.pdf";
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'Vivek_Resume.pdf';

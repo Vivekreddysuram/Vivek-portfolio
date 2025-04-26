@@ -12,7 +12,7 @@ import Experience from "./components/home/Experience";
 
 function App() {
   return (
-    <Router basename="/Vivek">
+    <Router basename="/Vivek-portfolio">
       <div className="App">
         <Navbar />
         <Routes>
