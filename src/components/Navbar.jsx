@@ -16,8 +16,7 @@ const Navbar = () => {
         </div>
         <div className={`navbar-links ${isOpen ? "active" : ""}`}>
           <a href="#about">About</a>
-          <a href="/Vivek_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-
+          <a href="/Vivek/resume.html" target="_blank" rel="noopener noreferrer">Resume</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
