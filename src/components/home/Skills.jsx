@@ -126,15 +126,6 @@ const Skills = () => {
           </div>
         ))}
       </div>
-      <div className="card-footer">
-        <div 
-          className="expand-icon" 
-          style={{ backgroundColor: color }}
-          onClick={() => openModal(categoryKey)}
-        >
-          +
-        </div>
-      </div>
     </div>
   );
 
@@ -149,42 +140,6 @@ const Skills = () => {
           renderSkillCard(key, category)
         )}
       </div>
-
-      {showModal && (
-        <div className="modal-overlay" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <h3>Add New {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}</h3>
-            <form onSubmit={handleAddSkill}>
-              <div className="form-group">
-                <label htmlFor="skillName">Skill Name:</label>
-                <input
-                  type="text"
-                  id="skillName"
-                  value={newSkill.name}
-                  onChange={e => setNewSkill({ ...newSkill, name: e.target.value })}
-                  placeholder="Enter skill name"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="skillLevel">Proficiency Level: {newSkill.level}%</label>
-                <input
-                  type="range"
-                  id="skillLevel"
-                  min="0"
-                  max="100"
-                  value={newSkill.level}
-                  onChange={e => setNewSkill({ ...newSkill, level: parseInt(e.target.value) })}
-                />
-              </div>
-              <div className="modal-actions">
-                <button type="button" onClick={() => setShowModal(false)}>Cancel</button>
-                <button type="submit">Add Skill</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
